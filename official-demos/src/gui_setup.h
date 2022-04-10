@@ -170,13 +170,22 @@ void guiTask(void *pvParameters) {
   se il touch non funziona con queste impostazioni, è necessaria la calibrazione
 
   */
+
+  // ILI9341
+  #if ILI9341_DRIVER
   // orizzontale  
-  //uint16_t calData[5] = { 484, 3387, 329, 3256, 1 };
-  uint16_t calData[5] = { 403, 3442, 419, 3251, 1 };
+  uint16_t calData[5] = { 484, 3387, 329, 3256, 1 };
+  //uint16_t calData[5] = { 403, 3442, 419, 3251, 1 };
   // verticale
   //uint16_t calData[5] = { 295, 3493, 320, 3602, 2 };
   // orizzontale invertito
   //uint16_t calData[5] = {418, 3404, 334, 3324, 7};  
+  #endif
+
+  // ILI9488
+  #if ILI9488_DRIVER
+  uint16_t calData[5] = { 284, 3643, 279, 3514, 1 };
+  #endif
 
   tft.setTouch(calData);
 
